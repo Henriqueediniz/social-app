@@ -9,7 +9,7 @@ export default class TimeLine extends Component {
     newTweet: '',
   };
 
-  handleNewTweet = (e) => {
+  handleNewTweet = async e => {
     if (e.keyCode !== 13) return;
 
     const content = this.state.newTweet;
@@ -17,7 +17,7 @@ export default class TimeLine extends Component {
 
     await api.post('tweets', {content, author});
 
-    this.setState({newTweet: ''});
+    this.setState({newTweet: '' });
   };
 
   handleInputChange = e => {
@@ -33,6 +33,7 @@ export default class TimeLine extends Component {
             value={this.state.newTweet}
             onChange={this.handleInputChange}
             onKeyDown={this.handleNewTweet} 
+            placeholder='What is happen?'
           />
 
         </form>
