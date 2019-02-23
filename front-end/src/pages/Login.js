@@ -11,7 +11,7 @@ export default class Login extends Component {
     };
 
     handleInputChage = e => {
-        this.setState({ username: e.target.value})
+        this.setState({ username: e.target.value});
     };
     handleSubmit = e => {
         e.preventDefault();
