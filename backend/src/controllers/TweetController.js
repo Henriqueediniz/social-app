@@ -16,24 +16,8 @@ module.exports = {
     },
 
     async delete(req, res) {
-        const id = await Tweet.findById(req.params.id);
-       // const tweet = await Tweet.remove({_id: mongodb.ObjectId(id)})
-       
-        await Tweet.findById(id).exec(function(err, doc) {
-            if (err || !doc) {
-                res.statusCode = 404;
-                res.send({});
-            } else {
-                doc.remove(function(err) {
-                    if (err) {
-                        res.statusCode = 403;
-                        res.send(err);
-                    } else {
-                        res.send({});
-                    }
-                });
-            }
-        });
-        
+        await Tweet.findByIdAndRemove(req.params.id).then(function(){
+            res.send(tweet)
+        });        
     }
 };
