@@ -29,6 +29,12 @@ export default class TimeLine extends Component {
       this.setState({ tweets: this.state.tweets.map(tweet =>
         tweet._id === data._id ? data : tweet)})
     });
+
+    io.on('delete', data =>{
+      alert('tweet deleted');
+      this.setState({tweets: data, ...api.get('tweets').data})
+    })
+
   };
 
   handleNewTweet = async e => {
