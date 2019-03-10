@@ -17,10 +17,9 @@ module.exports = {
 
     async delete(req, res) {        
          await Tweet.findByIdAndRemove(req.params.id);
-         
          const tweets = await Tweet.find({}).sort('-createAt');
 
-         req.io.emit('delete', tweets)
+         req.io.emit('delete',tweets);
 
          return res.send({tweets});
          
