@@ -15,9 +15,15 @@ module.exports = {
         return res.json(tweet);
     },
 
-    async delete(req, res) {
-        await Tweet.findByIdAndRemove(req.params.id).then(function(){
-            res.send(tweet)
-        });        
-    }
-};
+    async delete(req, res) {        
+         await Tweet.findByIdAndRemove(req.params.id);
+         
+         const tweets = await Tweet.find({}).sort('-createAt');
+
+         req.io.emit('delete', tweets)
+
+         return res.send({tweets});
+         
+     }
+ };
+ 

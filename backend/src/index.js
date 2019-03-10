@@ -7,6 +7,8 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
+mongoose.set('useFindAndModify', false);
+
 mongoose.connect(
   "mongodb+srv://admin:admin123@social-app-2lvf1.mongodb.net/test?retryWrites=true",
 {
