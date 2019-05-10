@@ -4,31 +4,29 @@ const cors = require("cors");
 
 const app = express();
 
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 
 //remove node warning about FindAndModify
-mongoose.set('useFindAndModify', false);
+mongoose.set("useFindAndModify", false);
 
 mongoose.connect(
   "mongodb+srv://admin:admin123@social-app-2lvf1.mongodb.net/test?retryWrites=true",
-{
-  useNewUrlParser: true
-}
+  {
+    useNewUrlParser: true
+  }
 );
 
 app.use((req, res, next) => {
   req.io = io;
-  
+
   return next();
 });
 
 app.use(cors());
 app.use(express.json());
-app.use(require('./routes'))
+app.use(require("./routes"));
 
 server.listen(3000, () => {
   console.log(":) Server started on port 3000");
 });
-
-
