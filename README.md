@@ -7,9 +7,10 @@
 
 **App result*
 
-!(https://imgur.com/a/RUMs2bc)
 
-!(https://i.imgur.com/1BtR85Y.png)
+![Login](https://i.imgur.com/YWbfqa8.png)
+![Timeline](https://i.imgur.com/1BtR85Y.png)
+
 
 ---
 
