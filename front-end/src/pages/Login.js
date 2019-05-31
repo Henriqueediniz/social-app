@@ -33,7 +33,7 @@ export default class Login extends Component {
                 <input 
                     value ={this.state.username}
                     onChange={this.handleInputChage}
-                    placeholder="Nome de usuário"
+                    placeholder="User name"
                 />
                 <button type="submit">Entrar</button>
             </form>
